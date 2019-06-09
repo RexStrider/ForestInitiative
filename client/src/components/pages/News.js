@@ -16,10 +16,22 @@ extends Component {
         });
     }
 
-    async componentDidMount() {
-        const res = this.getArticles(1);
+    getCivicInfo = address => {
+        axios.get(`/api/civic_info/${address}`)
+        .then(response => {
+            return response;
+        })
+        .catch(error => {
+            return error;
+        })
+    }
 
-        console.log(res);
+    async componentDidMount() {
+        const art = this.getArticles(1);
+        const civ = this.getCivicInfo('Oakland CA');
+
+        console.log(art);
+        console.log(civ);
     }
 
     render() { 
