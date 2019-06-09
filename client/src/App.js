@@ -4,6 +4,7 @@ import Home from './components/pages/Home';
 import News from './components/pages/News';
 import Petitions from './components/pages/Petitions';
 import MapView from './components/pages/Map';
+import Congress from './containers/Congress';
 import Donate from './components/pages/Donate';
 import {
   BrowserRouter as Router,
@@ -21,7 +22,7 @@ function App() {
           <Route exact path='/news' component={News} />
           <Route exact path='/petitions' component={Petitions} />
           <Route exact path='/map' component={MapView} />
-          <Route exact path='/congress' />
+          <Route exact path='/congress' component={Congress}/>
           <Route exact path='/donate' component={Donate} />
         </Switch>
       </Router>

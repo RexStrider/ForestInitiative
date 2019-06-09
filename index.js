@@ -1,4 +1,4 @@
-// require('./config/connection');
+require('./mailer');
 
 const express = require('express');
 const routes = require('./routes');

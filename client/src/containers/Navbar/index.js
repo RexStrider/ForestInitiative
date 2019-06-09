@@ -21,7 +21,7 @@ class Navbar extends Component {
                 <Sidebar
                     id='sidebar'
                     sidebar={<div className='p-4 mt-2'>
-                        <h1>The Wilderness Society</h1>
+                        <h3>The Wilderness Society</h3>
                         <Tabs />
                     </div>}
                     open={this.state.sidebarOpen}
@@ -34,7 +34,7 @@ class Navbar extends Component {
                         <div className='row justify-content-md-center'>
                             <div className='col-sm-11 d-flex justify-content-between'>
                                 <i className="fas fa-bars border border-white p-1 rounded-lg" style={{ color: 'white', fontSize: '35px' }} onClick={() => this.onSetSidebarOpen(true)}></i>
-                                <button className='btn btn-primary'>Donate</button>
+                                <a href='http://localhost:3000/donate'><button className='btn btn-primary'>Donate</button></a>
                             </div>
                         </div>
                     </div>
