@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navbar from './containers/Navbar';
+import Home from './components/pages/Home';
+import News from './components/pages/News';
+import Petitions from './components/pages/Petitions';
+import Gmap from './components/pages/Map';
+import {
+  BrowserRouter as Router,
+  Route, Switch
+} from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/news' component={News} />
+          <Route exact path='/petitions' component={Petitions} />
+          <Route exact path='/map' component={Gmap} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
