@@ -21,7 +21,7 @@ class Navbar extends Component {
                 <Sidebar
                     id='sidebar'
                     sidebar={<div className='p-4 mt-2'>
-                        <h3>The Wilderness Society</h3>
+                        <h1>The Wilderness Society</h1>
                         <Tabs />
                     </div>}
                     open={this.state.sidebarOpen}
