@@ -31,7 +31,7 @@ class MapView extends Component {
     // }
 
     handleMarkerClick = () => {
-        this.setState({ isMarkerShown: false })
+        this.setState({ isMarkerShown: true })
         this.delayedShowMarker()
     }
 
@@ -57,8 +57,14 @@ class MapView extends Component {
     render() {
         return (
             <div className='row justify-content-md-center mt-5'>
-                <div className='col-md-6 mt-5 ml-4 pt-3'>
-                    <MapComponent     
+                <div className='col-md-6 mt-5 m-4 p-3 pl-4 pb-5 rounded-lg text-center' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
+                    <h1 className='border-bottom border-dark mb-3 pb-2'>GeoLocation</h1>
+                    <h3 className='text-left'>In a National Forest right now?</h3>
+                    <p className='text-left'>Click your location on the map to get info about the forest you are in!</p>
+
+                    <p>Map Tool still under construction!</p>
+                    <MapComponent
+                        className='ml-4'     
                         isMarkerShown={this.state.isMarkerShown}
                         onMarkerClick={this.handleMarkerClick}
                         currentLocation={this.state.currentLatLng}

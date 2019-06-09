@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "concurrently \"node index.js\" \"cd client && npm start\""
+    "dev": "concurrently \"nodemon index.js\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "http-errors": "^1.7.2",
     "mongojs": "^2.6.0",
-    "mongoose": "^5.5.14"
+    "mongoose": "^5.5.14",
+    "nodemailer": "^6.2.1"
   }
 }
