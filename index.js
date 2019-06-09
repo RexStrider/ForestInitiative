@@ -1,4 +1,4 @@
-require('./mailer');
+// require('./mailer');
 
 const express = require('express');
 const routes = require('./routes');
