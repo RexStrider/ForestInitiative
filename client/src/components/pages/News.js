@@ -1,15 +1,21 @@
 // import React from 'react';
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class News 
 extends Component {
-    state = {  }
+    state = {
+        articles: ''
+    }
 
     getArticles = num => {
-        axios.get(`/api/articles/${num}`)
+        fetch(`/api/articles/${num}`)
         .then(response => {
-            return response;
+            return response.json();
+        })
+        .then( data => {
+            const articles = data.body.articles;
+            this.setState({ articles });
+            console.log(articles);
         })
         .catch(error => {
             return error;
@@ -17,9 +23,14 @@ extends Component {
     }
 
     getCivicInfo = address => {
-        axios.get(`/api/civic_info/${address}`)
+        fetch(`/api/civic_info/${address}`)
         .then(response => {
-            return response;
+            return response.json();
+        })
+        .then( data => {
+            const civicInfo = data.body;
+            // this.setState({ civicInfo });
+            console.log(civicInfo);
         })
         .catch(error => {
             return error;
@@ -27,11 +38,10 @@ extends Component {
     }
 
     async componentDidMount() {
-        const art = this.getArticles(1);
-        const civ = this.getCivicInfo('Oakland CA');
+        this.getArticles();
+        // this.getCivicInfo('Oakland CA');
 
-        console.log(art);
-        console.log(civ);
+        // console.log(civ);
     }
 
     render() { 
