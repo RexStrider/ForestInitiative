@@ -55,8 +55,8 @@ class News
                         return (
                             <div>
                                 <h2>{article.title}</h2>
-                                <h4>AUTHOR: {article.author}</h4>
-                                <p>{article.description}</p>
+                                <h4>{article.author}</h4>
+                                <h3>{article.description}</h3>
                                 <a href={article.url}>SOURCE: {article.source.name}</a>
                                 <br /><br />
                             </div>
