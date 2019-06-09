@@ -1,4 +1,5 @@
 module.exports = {
     Article: require("./article"),
-    CivicInfo: require('./civic_info')
+    CivicInfo: require('./civic_info'),
+    Payment: require('./payment')
 };
