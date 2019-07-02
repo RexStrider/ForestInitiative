@@ -40,25 +40,37 @@ class News
 
     async componentDidMount() {
         await this.getArticles(3);
-        // this.getCivicInfo('Oakland CA');
 
-        // console.log(civ);
     }
 
     render() {
         return (
             <div className='row justify-content-md-center mt-5 text-white text-center'>
-            <div className='col-md-6 rounded-lg mt-5 p-3 m-4 text-dark' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
-                  <h1 className='border-bottom border-dark mb-3 pb-2'>News!</h1>
+                <div className='col-md-6 rounded-lg mt-5 p-3 m-4 text-dark'
+                     style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
 
-                  {this.state.articles.map(article => {
+                    <h1 className='border-bottom border-dark mb-3 pb-2'>
+                        Learn about the State of the Wild!
+                    </h1>
+
+                    {this.state.articles.map(article => {
                         return (
-                            <div>
-                                <h2>{article.title}</h2>
-                                <h4>{article.author}</h4>
-                                <h3>{article.description}</h3>
-                                <a href={article.url}>SOURCE: {article.source.name}</a>
-                                <br /><br />
+                            <div className='card'>
+                                <div className='card-body'>
+                                    <h4 className='card-title'>
+                                        {article.title}
+                                    </h4>
+                                    <p className='card-subtitle mb-2'>
+                                        by {article.author}
+                                    </p>
+                                    <p className='card-text'>
+                                        {article.description}
+                                    </p>
+                                    <a href={article.url}
+                                       className='card-link'>
+                                        SOURCE: {article.source.name}
+                                    </a>
+                                </div>
                             </div>
                         )
                     })}
