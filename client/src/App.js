@@ -6,6 +6,7 @@ import Petitions from './components/pages/Petitions';
 import MapView from './components/pages/Map';
 import Congress from './containers/Congress';
 import Donate from './components/pages/Donate';
+
 import {
   BrowserRouter as Router,
   Route, Switch
@@ -14,19 +15,19 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <Router>
+    <div>
       <Navbar />
-      <Router>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/news' component={News} />
-          <Route exact path='/petitions' component={Petitions} />
-          <Route exact path='/map' component={MapView} />
-          <Route exact path='/congress' component={Congress}/>
-          <Route exact path='/donate' component={Donate} />
-        </Switch>
-      </Router>
-    </>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/news' component={News} />
+        <Route path='/petitions' component={Petitions} />
+        <Route path='/map' component={MapView} />
+        <Route path='/congress' component={Congress}/>
+        <Route path='/donate' component={Donate} />
+      </Switch>
+      </div>
+    </Router>
   );
 }
 
