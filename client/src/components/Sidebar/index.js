@@ -11,6 +11,7 @@ const Sidebar= () => (
         <ul style={{ listStyleType: 'none', padding: '0' }}>
           <li><Link to='/' style={{fontSize: '25px', color: '#115E1B', paddingTop: '2%'}}>Home</Link></li>
           <li><Link to='/news' style={{fontSize: '25px', color: '#115E1B'}}>News</Link></li>
+          <li><Link to='/contact' style={{fontSize: '25px', color: '#115E1B'}}>Contact</Link></li>
           <li><Link to='/petitions' style={{fontSize: '25px', color: '#115E1B'}}>Petitions</Link></li>
           <li><Link to='/map' style={{fontSize: '25px', color: '#115E1B'}}>Map</Link></li>
           <li><Link to='/congress' style={{fontSize: '25px', color: '#115E1B'}}>Email-Congress</Link></li>
