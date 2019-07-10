@@ -123,22 +123,22 @@ class Contact extends Component {
     // twitter page: https://twitter.com/{ twitter id here }
     renderRepresentative = rep => {
         return(
-            <div className="card" style={{width: '18rem'}}
+            <div className="card"
                  key={ rep.name }>
                 <div className="card-body">
-                    { rep.photoUrl ? <img src={rep.photoUrl} alt='' style={{height: '200px'}}/> : null }
+                    { rep.photoUrl ? <img src={rep.photoUrl} alt='' style={{width: '200px'}}/> : null }
                     <h5 className="card-title">{ rep.name }</h5>
                     <h6 className="card-subtitle mb-2">{ rep.title }</h6>
                     <h6 className="card-subtitle mb-2">{ rep.government }</h6>
                     { this.renderPhones(rep.phones) }
                     { this.renderAddresses(rep.addresses) }
-                    { rep.facebookId ? (<a href={(`https://www.facebook.com/${ rep.facebookId }`)} 
-                                           className="card-link">Facebook</a>) : null }
-                    { rep.twitterId ? (<a href={(`https://twitter.com/${ rep.twitterId }`)}
-                                          className="card-link">Twitter</a>) : null }
-                    <br />
+                    <div>
+                        { rep.facebookId ? (<a href={(`https://www.facebook.com/${ rep.facebookId }`)} 
+                                            className="card-link">Facebook</a>) : null }
+                        { rep.twitterId ? (<a href={(`https://twitter.com/${ rep.twitterId }`)}
+                                            className="card-link">Twitter</a>) : null }
+                    </div>
                     { rep.urls ? (<a href={rep.urls[0]} className="card-link">{rep.urls}</a>) : null }
-                    
                 </div>
             </div>
         )
