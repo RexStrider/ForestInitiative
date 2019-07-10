@@ -45,18 +45,13 @@ class Contact extends Component {
     }
 
     getRows = (reps) => {
-        if (reps === undefined) {
-            console.log('cards is undefined');
-            console.log(reps);
-            return [];
-        }
-
         const col=[];
-        let row=[]
+        let row=[];
         for (let i=0; i<reps.length; i++) {
             const card = reps[i]; // get the card
             row.push(card); // push the card to the row
-            if (i !== 0 && i % 3 === 0) { // if every third card
+            console.log(i !== 0 && (i + 1) % 3 === 0);
+            if (i !== 0 && (i + 1) % 3 === 0) { // if every third card
                 col.push(row); // add row to the column
                 row=[]; // initialize new row
             }
@@ -117,10 +112,12 @@ class Contact extends Component {
                     }
                 }
             }
-            // console.log(reps);
-            // console.log(reps.length);
+            console.log(reps);
+            console.log(reps.length);
 
-
+            const rows = this.getRows(reps);
+            console.log(rows);
+            console.log(rows.length);
 
             const content = reps.map(representative => 
                     this.renderRepresentative(representative)
