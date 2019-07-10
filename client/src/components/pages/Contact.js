@@ -23,15 +23,6 @@ class Contact extends Component {
         }
     }
 
-    // renderContent = (data) => {
-    //     const cards = this.renderContent(data);
-    //     // console.log(cards);
-
-    //     // const rows = this.getRows(cards);
-
-    //     return this.renderRows(cards)
-    // }
-
     renderRow = row => {
         console.log(row);
 
@@ -81,7 +72,9 @@ class Contact extends Component {
                             addresses: [],
                             phones: official.phones,
                             facebookId: '',
-                            twitterId: ''
+                            twitterId: '',
+                            photoUrl: official.photoUrl,
+                            urls: official.urls
                         }
 
                         const officialAddresses = official.address;
@@ -114,17 +107,11 @@ class Contact extends Component {
 
             const rows = this.getRows(reps);
 
-            console.log(rows);
-
             const content = rows.map(row =>
                 <div className='row justify-content-md-center mt-5 text-dark text-center'>
                     { this.renderRow(row) }
                 </div>
             )
-
-            // const content = reps.map(representative => 
-            //     this.renderRepresentative(representative)
-            // )
 
             return content;
         }
@@ -139,16 +126,19 @@ class Contact extends Component {
             <div className="card" style={{width: '18rem'}}
                  key={ rep.name }>
                 <div className="card-body">
+                    { rep.photoUrl ? <img src={rep.photoUrl} alt='' style={{height: '200px'}}/> : null }
                     <h5 className="card-title">{ rep.name }</h5>
                     <h6 className="card-subtitle mb-2">{ rep.title }</h6>
                     <h6 className="card-subtitle mb-2">{ rep.government }</h6>
                     { this.renderPhones(rep.phones) }
                     { this.renderAddresses(rep.addresses) }
-                    {/* <p className="card-text">{rep.address}</p> */}
                     { rep.facebookId ? (<a href={(`https://www.facebook.com/${ rep.facebookId }`)} 
                                            className="card-link">Facebook</a>) : null }
                     { rep.twitterId ? (<a href={(`https://twitter.com/${ rep.twitterId }`)}
                                           className="card-link">Twitter</a>) : null }
+                    <br />
+                    { rep.urls ? (<a href={rep.urls[0]} className="card-link">{rep.urls}</a>) : null }
+                    
                 </div>
             </div>
         )
