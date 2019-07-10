@@ -23,25 +23,25 @@ class Contact extends Component {
         }
     }
 
-    renderContent = (data) => {
-        const cards = this.renderCards(data);
-        // console.log(cards);
+    // renderContent = (data) => {
+    //     const cards = this.renderContent(data);
+    //     // console.log(cards);
 
-        // const rows = this.getRows(cards);
+    //     // const rows = this.getRows(cards);
 
-        return this.renderRows(cards)
-    }
+    //     return this.renderRows(cards)
+    // }
 
-    renderRows = rows => {
-        // console.log(rows);
-        // console.log(typeof rows);
+    renderRow = row => {
+        console.log(row);
 
+        const componentRow = row.map(rep => 
+            <div className='col-md-3 m-3'>
+                    { this.renderRepresentative(rep) }
+            </div> 
+        );
 
-        return (
-            <div className='row justify-content-md-center mt-5 text-dark text-center'>
-                    { rows }
-            </div>
-        )
+        return componentRow;
     }
 
     getRows = (reps) => {
@@ -50,7 +50,6 @@ class Contact extends Component {
         for (let i=0; i<reps.length; i++) {
             const card = reps[i]; // get the card
             row.push(card); // push the card to the row
-            console.log(i !== 0 && (i + 1) % 3 === 0);
             if (i !== 0 && (i + 1) % 3 === 0) { // if every third card
                 col.push(row); // add row to the column
                 row=[]; // initialize new row
@@ -59,7 +58,7 @@ class Contact extends Component {
         return col;
     }
 
-    renderCards = data => {
+    renderContent = data => {
         const reps = [];
         const divisions = Object.entries(data.divisions);
 
@@ -112,16 +111,20 @@ class Contact extends Component {
                     }
                 }
             }
-            console.log(reps);
-            console.log(reps.length);
 
             const rows = this.getRows(reps);
-            console.log(rows);
-            console.log(rows.length);
 
-            const content = reps.map(representative => 
-                    this.renderRepresentative(representative)
-                )
+            console.log(rows);
+
+            const content = rows.map(row =>
+                <div className='row justify-content-md-center mt-5 text-dark text-center'>
+                    { this.renderRow(row) }
+                </div>
+            )
+
+            // const content = reps.map(representative => 
+            //     this.renderRepresentative(representative)
+            // )
 
             return content;
         }
