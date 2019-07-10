@@ -23,25 +23,60 @@ class Contact extends Component {
         }
     }
 
-    consoleLogDivisions = (data, divisions) => {
-        console.log(divisions);
+    // consoleLogDivisions = (data, divisions) => {
+    //     console.log(divisions);
 
-        for (const key in divisions) {
-            const gov = divisions[key]
-            console.log('\t', gov[1].name)
-            const officeIndices = gov[1].officeIndices;
-            for (const key in officeIndices) {
-                const index = officeIndices[key];
-                const office = data.offices[index];
-                console.log('\t\t', office.name);
-                const officialIndices = office.officialIndices;
-                for (const key in officialIndices) {
-                    const index = officialIndices[key];
-                    const official = data.officials[index];
-                    console.log('\t\t\t', official.name);
-                }
-            }
+    //     for (const key in divisions) {
+    //         const gov = divisions[key]
+    //         console.log('\t', gov[1].name)
+    //         const officeIndices = gov[1].officeIndices;
+    //         for (const key in officeIndices) {
+    //             const index = officeIndices[key];
+    //             const office = data.offices[index];
+    //             console.log('\t\t', office.name);
+    //             const officialIndices = office.officialIndices;
+    //             for (const key in officialIndices) {
+    //                 const index = officialIndices[key];
+    //                 const official = data.officials[index];
+    //                 console.log('\t\t\t', official.name);
+    //             }
+    //         }
+    //     }
+    // }
+
+    renderPhoneNumber(phone) {
+        return ( <p className="card-text">{ phone }</p> );
+    }
+
+    renderPhones(rep) {
+        const phoneNumbers = [];
+
+        console.log(rep);
+        console.log(rep.phones);
+        for (const key in rep.phones) {
+            const phone = rep.phones[key];
+            console.log(key);
+            phoneNumbers.push(this.renderPhoneNumber(phone));
         }
+
+        return phoneNumbers;
+    }
+
+    renderAddress(address) {
+        return( <p className="card-text">{ address }</p> )
+    }
+
+    renderAddresses(rep) {
+        const addresses = []
+
+        for (const key in rep.addresses) {
+            const address = rep.addresses[key];
+
+            addresses.push(this.renderAddress(address));
+        }
+
+        // console.log(addresses);
+        return addresses;
     }
 
     // create a card and push to the stack
@@ -50,15 +85,18 @@ class Contact extends Component {
     // twitter page: https://twitter.com/{ twitter id here }
     renderRepresentative = rep => {
         return(
-            <div className="card" style={{width: '18rem'}} >
+            <div className="card" style={{width: '18rem'}}
+                 key={ rep.name }>
                 <div className="card-body">
-                    <h5 className="card-title">{rep.name}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">{rep.title}</h6>
-                    <h6 className="card-subtitle mb-2 text-muted">{rep.government}</h6>
-                    <p className="card-text">{rep.address}</p>
-                    { rep.facebookId ? (<a href={(`https://www.facebook.com/${rep.facebookId}`)} 
+                    <h5 className="card-title">{ rep.name }</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">{ rep.title }</h6>
+                    <h6 className="card-subtitle mb-2 text-muted">{ rep.government }</h6>
+                    { this.renderPhones(rep) }
+                    { this.renderAddresses(rep) }
+                    {/* <p className="card-text">{rep.address}</p> */}
+                    { rep.facebookId ? (<a href={(`https://www.facebook.com/${ rep.facebookId }`)} 
                                            className="card-link">Facebook</a>) : null }
-                    { rep.twitterId ? (<a href={(`https://twitter.com/${rep.twitterId}`)}
+                    { rep.twitterId ? (<a href={(`https://twitter.com/${ rep.twitterId }`)}
                                           className="card-link">Twitter</a>) : null }
                 </div>
             </div>
@@ -81,20 +119,20 @@ class Contact extends Component {
                         const index = officialIndices[key];
                         const official = data.officials[index];
 
-                        console.log( gov.name, '\n',
-                                    office.name, '\n',
-                                    official.name, '\n',
-                                    official.party, '\n',
-                                    official.phones, '\n',
-                                    official.urls, '\n',
-                                    official.photoUrl );
+                        // console.log( gov.name, '\n',
+                        //             office.name, '\n',
+                        //             official.name, '\n',
+                        //             official.party, '\n',
+                        //             official.phones, '\n',
+                        //             official.urls, '\n',
+                        //             official.photoUrl );
 
                         const representative = {
                             name: official.name,
                             title: office.name,
                             government: gov.name,
                             addresses: [],
-                            phones: [],
+                            phones: official.phones,
                             facebookId: '',
                             twitterId: ''
                         }
@@ -104,11 +142,12 @@ class Contact extends Component {
 
                         for (const key in officialAddresses) {
                             const address = officialAddresses[key];
-                            representative.addresses.push(address.line1 + ' ' + address.line2 + ' ' + address.line3 + '\n' + address.city + ' ' + address.state + ' ' + address.zip);
+                            representative.addresses.push(address.line1 + ' ' + address.line2 + ' ' + address.line3 );
+                            representative.addresses.push(address.city + ' ' + address.state + ' ' + address.zip);
                         }
                         for (const key in officialChannels) {
                             const channel = officialChannels[key];
-                            console.log(channel.type, channel.id);
+                            // console.log(channel.type, channel.id);
                             
                             if ('facebook' === channel.type.toLowerCase()) {
                                 representative.facebookId=channel.id;
@@ -117,6 +156,8 @@ class Contact extends Component {
                             if ('twitter' === channel.type.toLowerCase()) {
                                 representative.twitterId=channel.id;
                             }
+
+                            //google plus
                         }
 
                         content.push(this.renderRepresentative(representative));
@@ -126,18 +167,6 @@ class Contact extends Component {
 
             return content;
         }
-
-        // return(
-        //     <div className="card" style="width: 18rem;">
-        //         <div className="card-body">
-        //             <h5 className="card-title">{}</h5>
-        //             <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        //             <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        //             <a href="#" className="card-link">Card link</a>
-        //             <a href="#" className="card-link">Another link</a>
-        //         </div>
-        //     </div>
-        // );
     }
 
     render() {
