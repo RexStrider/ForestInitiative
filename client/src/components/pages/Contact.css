@@ -1,5 +1,6 @@
 .card {
-
+    min-width: 250px;
+    /* min-height: 650px; */
 }
 
 .card-title {
