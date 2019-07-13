@@ -1,0 +1,38 @@
+.card {
+
+}
+
+.card-title {
+    font-size: 24px;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.card-subtitle {
+    font-size: 18px;
+}
+
+.card-link {
+    font-size: 18px;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+.card-text {
+    font-size: 18px;
+}
+
+.phone-numbers {
+    margin-bottom: 10px;
+}
+
+.address {
+    margin-bottom: 10px;
+}
+
+.address p {
+    margin-bottom: 0px;
+}

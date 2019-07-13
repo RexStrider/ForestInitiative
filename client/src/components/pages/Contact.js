@@ -1,3 +1,5 @@
+import './Contact.css';
+
 import React, { Component } from 'react';
 
 import { getCivicInfo } from '../../API/civicInfo';
@@ -8,6 +10,35 @@ class Contact extends Component {
         data: {
             divisions: []
         }
+    }
+
+    render() {
+        console.log(this.state);
+        return (
+            <div>
+                <div className='row justify-content-md-center mt-5 text-dark text-center'>
+                    <div className='col-md-6 border border-white rounded-lg m-3 mt-5' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
+                        <h1 style={{margin: '10px 0px'}}>
+                            Enter your address to search for your representatives
+                        </h1>
+
+                        <input
+                        name='address'
+                        value={this.state.address}
+                        onChange={this.handleInput}
+                        onKeyPress={this.handleKeyPress}
+                        className="form-control"
+                        style={{height: '60px', fontSize: '18px'}}
+                        type="text"
+                        placeholder="enter your address"
+                        aria-label="search" />
+
+                        <div style={{margin: '25px 0px'}}></div>
+                    </div>
+                </div>
+                { this.renderContent(this.state.data) }
+            </div>
+        );
     }
 
     handleInput = event => {
@@ -21,32 +52,6 @@ class Contact extends Component {
             const data = await getCivicInfo(address);
             this.setState({ data: data.body });
         }
-    }
-
-    renderRow = row => {
-        console.log(row);
-
-        const componentRow = row.map(rep => 
-            <div className='col-md-3 m-3'>
-                    { this.renderRepresentative(rep) }
-            </div> 
-        );
-
-        return componentRow;
-    }
-
-    getRows = (reps) => {
-        const col=[];
-        let row=[];
-        for (let i=0; i<reps.length; i++) {
-            const card = reps[i]; // get the card
-            row.push(card); // push the card to the row
-            if (i !== 0 && (i + 1) % 3 === 0) { // if every third card
-                col.push(row); // add row to the column
-                row=[]; // initialize new row
-            }
-        }
-        return col;
     }
 
     renderContent = data => {
@@ -117,19 +122,50 @@ class Contact extends Component {
         }
     }
 
-    // create a card and push to the stack
-    // gov, office, official + ' ' + address, channel
-    // facebook page: https://www.facebook.com/{ facebook id here! }
-    // twitter page: https://twitter.com/{ twitter id here }
+    getRows = (reps) => {
+        const col=[];
+        let row=[];
+        for (let i=0; i<reps.length; i++) {
+            const card = reps[i]; // get the card
+            row.push(card); // push the card to the row
+            if (i !== 0 && (i + 1) % 2 === 0) { // if every second card
+                col.push(row); // add row to the column
+                row=[]; // initialize new row
+            }
+        }
+        return col;
+    }
+
+    renderRow = row => {
+        console.log(row);
+
+        const componentRow = row.map(rep => 
+            <div className='col-md-4 m-3'>
+                    { this.renderRepresentative(rep) }
+            </div> 
+        );
+
+        return componentRow;
+    }
+
     renderRepresentative = rep => {
+        let {start, end} = 0;
+
+        if (rep.urls) {
+            const url = rep.urls[0]
+
+            start = url.substring(0, 5) === 'https' ? 8 : 7;
+            end = url.substring(url.length-1, url.length) === '/' ? url.length-1 : url.length;
+        }
+
         return(
             <div className="card"
                  key={ rep.name }>
                 <div className="card-body">
                     { rep.photoUrl ? <img src={rep.photoUrl} alt='' style={{width: '200px'}}/> : null }
                     <h5 className="card-title">{ rep.name }</h5>
-                    <h6 className="card-subtitle mb-2">{ rep.title }</h6>
-                    <h6 className="card-subtitle mb-2">{ rep.government }</h6>
+                    <h6 className="card-subtitle mb-3">{ rep.title }</h6>
+                    <h6 className="card-subtitle mb-3">{ rep.government }</h6>
                     { this.renderPhones(rep.phones) }
                     { this.renderAddresses(rep.addresses) }
                     <div>
@@ -138,7 +174,7 @@ class Contact extends Component {
                         { rep.twitterId ? (<a href={(`https://twitter.com/${ rep.twitterId }`)}
                                             className="card-link">Twitter</a>) : null }
                     </div>
-                    { rep.urls ? (<a href={rep.urls[0]} className="card-link">{rep.urls}</a>) : null }
+                    { rep.urls ? (<a href={rep.urls[0]} className="card-link">{ rep.urls[0].substring(start, end) }</a>) : null }
                 </div>
             </div>
         )
@@ -178,34 +214,7 @@ class Contact extends Component {
         )
     }
 
-    render() {
-        console.log(this.state);
-        return (
-            <div>
-                <div className='row justify-content-md-center mt-5 text-dark text-center'>
-                    <div className='col-md-6 border border-white rounded-lg m-3 mt-5' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
-                        <h1 style={{margin: '10px 0px'}}>
-                            Enter your address to search for your representatives
-                        </h1>
-
-                        <input
-                        name='address'
-                        value={this.state.address}
-                        onChange={this.handleInput}
-                        onKeyPress={this.handleKeyPress}
-                        className="form-control"
-                        style={{height: '60px', fontSize: '18px'}}
-                        type="text"
-                        placeholder="enter your address"
-                        aria-label="search" />
-
-                        <div style={{margin: '25px 0px'}}></div>
-                    </div>
-                </div>
-                { this.renderContent(this.state.data) }
-            </div>
-        );
-    }
+    
 }
  
 export default Contact;
