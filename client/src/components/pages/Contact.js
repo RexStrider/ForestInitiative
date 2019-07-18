@@ -70,7 +70,7 @@ class Contact extends Component {
             return (
                 <div className='row justify-content-md-center mt-5 text-dark text-center'>
                     <div className='col-md-6 border border-white rounded-lg m-3 mt-5' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
-                        <h1>Unfortunately, we could not find your representatives...</h1>
+                        <h2>Unfortunately, we could not find your representatives...</h2>
                     </div>
                 </div>
             )
