@@ -28,7 +28,7 @@ function App() {
         <Route path='/congress' component={Congress}/>
         <Route path='/donate' component={Donate} />
       </Switch>
-      </div>
+    </div>
     </Router>
   );
 }
