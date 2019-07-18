@@ -18,9 +18,9 @@ class Contact extends Component {
             <div>
                 <div className='row justify-content-md-center mt-5 text-dark text-center'>
                     <div className='col-md-6 border border-white rounded-lg m-3 mt-5' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
-                        <h1 style={{margin: '10px 0px'}}>
+                        <h2 style={{margin: '10px 0px'}}>
                             Enter your address to search for your representatives
-                        </h1>
+                        </h2>
 
                         <input
                         name='address'
@@ -33,9 +33,19 @@ class Contact extends Component {
                         placeholder="enter your address"
                         aria-label="search" />
 
+                        
                         <div style={{margin: '25px 0px'}}></div>
                     </div>
                 </div>
+
+                <div className='row justify-content-md-center mt-5 text-dark text-center'>
+                    <div className='col-md-6 border border-white rounded-lg' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
+                        <h2 style={{margin: '10px 0px'}}>
+                            Powered by<br />Google Civic Information
+                        </h2>
+                    </div>
+                </div>
+
                 { this.renderContent(this.state.data) }
             </div>
         );
@@ -55,6 +65,16 @@ class Contact extends Component {
     }
 
     renderContent = data => {
+        if (data === undefined) {
+            console.log('data', data);
+            return (
+                <div className='row justify-content-md-center mt-5 text-dark text-center'>
+                    <div className='col-md-6 border border-white rounded-lg m-3 mt-5' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
+                        <h1>Unfortunately, we could not find your representatives...</h1>
+                    </div>
+                </div>
+            )
+        }
         const reps = [];
         const divisions = Object.entries(data.divisions);
 
@@ -105,7 +125,7 @@ class Contact extends Component {
                             }
                         }
 
-                        reps.push(representative);
+                        reps.unshift(representative);
                     }
                 }
             }
@@ -122,13 +142,15 @@ class Contact extends Component {
         }
     }
 
+    // 
     getRows = (reps) => {
         const col=[];
         let row=[];
+        const cardsPerRow = 1; // 1 card per row, if changed then make sure line 149 matches this setting
         for (let i=0; i<reps.length; i++) {
             const card = reps[i]; // get the card
             row.push(card); // push the card to the row
-            if (i !== 0 && (i + 1) % 2 === 0) { // if every second card
+            if (i !== 0 && (i + 1) % cardsPerRow === 0) {
                 col.push(row); // add row to the column
                 row=[]; // initialize new row
             }
@@ -137,10 +159,13 @@ class Contact extends Component {
     }
 
     renderRow = row => {
-        console.log(row);
-
+        // console.log(row);
+// line 149: col-md-6 sets card width to size of the search bar on the contacts page,
+// if changed make sure line 129 is set to the appropriate setting.
+// Currently its set to 1 card per row.
+// Set to col-md-4 for 2 cards per row and change line 129 to match the setting
         const componentRow = row.map(rep => 
-            <div className='col-md-4 m-3'>
+            <div className='col-md-6 m-3'>
                     { this.renderRepresentative(rep) }
             </div> 
         );
