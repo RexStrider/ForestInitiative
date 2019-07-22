@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './containers/Navbar';
 import Home from './components/pages/Home';
 import News from './components/pages/News';
-import Contact from './components/pages/Contact';
+import CivicInfo from './components/pages/CivicInfo';
 import Petitions from './components/pages/Petitions';
 import MapView from './components/pages/Map';
 import Congress from './containers/Congress';
@@ -22,7 +22,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/news' component={News} />
-        <Route path='/contact' component={Contact} />
+        <Route path='/civic-info' component={CivicInfo} />
         <Route path='/petitions' component={Petitions} />
         <Route path='/map' component={MapView} />
         <Route path='/congress' component={Congress}/>

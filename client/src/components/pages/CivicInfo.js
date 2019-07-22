@@ -1,4 +1,4 @@
-import './Contact.css';
+import './CivicInfo.css';
 
 import React, { Component } from 'react';
 
@@ -19,6 +19,14 @@ class Contact extends Component {
                 <div className='row justify-content-md-center mt-5 text-dark text-center'>
                     <div className='col-md-6 border border-white rounded-lg m-3 mt-5' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
                         <h2 style={{margin: '10px 0px'}}>
+                            Powered by<br />Google Civic Information
+                        </h2>
+                    </div>
+                </div>
+
+                <div className='row justify-content-md-center mt-5 text-dark text-center'>
+                    <div className='col-md-6 border border-white rounded-lg' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
+                        <h2 style={{margin: '10px 0px'}}>
                             Enter your address to search for your representatives
                         </h2>
 
@@ -35,14 +43,6 @@ class Contact extends Component {
 
                         
                         <div style={{margin: '25px 0px'}}></div>
-                    </div>
-                </div>
-
-                <div className='row justify-content-md-center mt-5 text-dark text-center'>
-                    <div className='col-md-6 border border-white rounded-lg' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
-                        <h2 style={{margin: '10px 0px'}}>
-                            Powered by<br />Google Civic Information
-                        </h2>
                     </div>
                 </div>
 
