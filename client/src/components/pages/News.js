@@ -23,24 +23,8 @@ class News
             });
     }
 
-    // getCivicInfo = address => {
-    //     fetch(`/api/civic_info/${address}`)
-    //     .then(response => {
-    //         return response.json();
-    //     })
-    //     .then( data => {
-    //         const civicInfo = data.body;
-    //         this.setState({ civicInfo });
-    //         console.log(civicInfo);
-    //     })
-    //     .catch(error => {
-    //         return error;
-    //     })
-    // }
-
     async componentDidMount() {
-        await this.getArticles(3);
-
+        await this.getArticles(1);
     }
 
     render() {
@@ -60,9 +44,9 @@ class News
                                     <h4 className='card-title'>
                                         {article.title}
                                     </h4>
-                                    <p className='card-subtitle mb-2'>
-                                        by {article.author}
-                                    </p>
+                                    { article.author ?
+                                        <p className='card-subtitle mb-2'>by {article.author}</p>
+                                        : <p className='card-subtitle mb-2'>author not found</p> }
                                     <p className='card-text'>
                                         {article.description}
                                     </p>
