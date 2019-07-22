@@ -2,6 +2,6 @@
     background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7))
 }
 
-[role=navigation] div:nth-child(3) {
-    display: none;
+[role=navigation] div:nth-child(3)::-webkit-scrollbar { 
+    display: none; 
 }
