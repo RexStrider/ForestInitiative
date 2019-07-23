@@ -71,8 +71,7 @@ class News
                     <div className='col-md-6 rounded-lg mt-5 p-3 m-4 text-dark'
                         style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
                     
-                        <h1>{ pages }
-                        </h1>
+                        {/* <h1>{ pages }</h1> */}
 
                         <nav>
                             <ul className="pagination">
@@ -93,7 +92,7 @@ class News
 
     renderPagination(pages) {
         const components=[];
-        for (let i=0; i<pages; i++) {
+        for (let i=0; i<pages && i<5; i++) {
             components.push(this.renderPageItem(i+1));
         }
         return components;
