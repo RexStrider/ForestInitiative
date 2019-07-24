@@ -30,9 +30,10 @@ class News
 
     render() {
         console.log(this.state);
-        const pages = this.state.articles.length > 0
+        const totalPages = this.state.articles.length > 0
                     ? Math.ceil(this.state.totalResults / this.state.articles.length)
                     : -1
+        const maxPages=5;
         return (
             <div>
                 <div className='row justify-content-md-center mt-5 text-white text-center'>
@@ -42,6 +43,8 @@ class News
                         <h1 className='border-bottom border-dark mb-3 pb-2'>
                             Learn about the State of the Wild!
                         </h1>
+
+                        { this.renderPaginationWrapper(this.state.currentPage, totalPages, maxPages) }
 
                         {this.state.articles.map(article => {
                             return (
@@ -64,28 +67,34 @@ class News
                                 </div>
                             )
                         })}
-                    </div>
-                </div>
-                <div className='row justify-content-md-center'>
-                    <div className='col-md-6 rounded-lg mt-5 p-3 m-4 text-dark'>
                     
-                        {/* <h1>{ pages }</h1> */}
+                        { this.renderPaginationWrapper(this.state.currentPage, totalPages, maxPages) }
 
-                        <nav>
-                            <ul className="pagination pagination-lg justify-content-md-center">
-                                <li className={this.state.currentPage <= 1 ? "page-item disabled" : "page-item"}>
-                                    <button className="page-link" onClick={() => this.previousPage(this.state.currentPage)}>Previous</button>
-                                </li>
-                                { this.renderPagination(pages) }
-                                <li className={this.state.currentPage >= 5 || this.state.currentPage >= pages ? "page-item disabled" : "page-item"}>
-                                    <button className="page-link" onClick={() => this.nextPage(this.state.currentPage, pages)}>Next</button>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
         );
+    }
+
+    renderPaginationWrapper(currentPage, totalPages, maxPages) {
+        if (currentPage < 0) return null;
+        return (
+            <div className='row justify-content-md-center'>
+                <div className='col-md-6 rounded-lg mt-5 p-3 m-4 text-dark'>
+                    <nav>
+                        <ul className="pagination pagination-lg justify-content-md-center">
+                            <li className={currentPage <= 1 ? "page-item disabled" : "page-item"}>
+                                <button className="page-link" onClick={() => this.previousPage(currentPage)}>Previous</button>
+                            </li>
+                            { this.renderPagination(totalPages) }
+                            <li className={currentPage >= maxPages || currentPage >= totalPages ? "page-item disabled" : "page-item"}>
+                                <button className="page-link" onClick={() => this.nextPage(currentPage, totalPages, maxPages)}>Next</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        )
     }
 
     renderPagination(pages) {
@@ -107,8 +116,8 @@ class News
         )
     }
 
-    nextPage(currentPage, pages) {
-        if (currentPage > 0 && currentPage < pages && currentPage < 5) {
+    nextPage(currentPage, totalPages, maxPages) {
+        if (currentPage > 0 && currentPage < totalPages && currentPage < maxPages) {
             this.getArticles(currentPage+1);
         }
     }
