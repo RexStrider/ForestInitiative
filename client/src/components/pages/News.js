@@ -1,4 +1,3 @@
-// import React from 'react';
 import React, { Component } from 'react';
 
 // this component displays the news articles retrieved from the news api
