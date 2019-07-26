@@ -29,7 +29,7 @@ class CivicInfo extends Component {
                 </div> */}
 
                 <div className='row justify-content-md-center mt-5 text-dark text-center'>
-                    <div className='col-md-6 border border-white rounded-lg' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
+                    <div className='col-md-6 border border-white rounded-lg m-3 mt-5' style={{ backgroundColor: `rgba(255,255,255,.8)` }}>
                         <h2 style={{margin: '10px 0px'}}>
                             Enter your address to search for your representatives
                         </h2>
@@ -184,7 +184,7 @@ class CivicInfo extends Component {
     getRows = (reps) => {
         const col=[];
         let row=[];
-        const cardsPerRow = 1; // 1 card per row, if changed then make sure line 208 matches this setting
+        const cardsPerRow = 1; // 1 card per row, if changed then make sure line 207 matches this setting
         for (let i=0; i<reps.length; i++) {
             const card = reps[i]; // get the card
             row.push(card); // push the card to the row
@@ -199,8 +199,7 @@ class CivicInfo extends Component {
     // renders the row displaying the representative(s)
     // depends on settings set for get rows and render row methods
     renderRow = row => {
-    // console.log(row);
-    // line 208: col-md-6 sets card width to size of the search bar on the contacts page,
+    // line 207: col-md-6 sets card width to size of the search bar on the contacts page,
     // if changed make sure line 187 is set to the appropriate setting.
     // Currently its set to 1 card per row.
     // Set to col-md-4 for 2 cards per row and change line 129 to match the setting

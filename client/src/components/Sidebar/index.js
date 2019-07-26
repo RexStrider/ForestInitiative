@@ -13,8 +13,8 @@ const Sidebar= () => (
           <li><Link to='/news' style={{fontSize: '25px', color: '#115E1B'}}>News</Link></li>
           <li><Link to='/civic-info' style={{fontSize: '25px', color: '#115E1B'}}>Civic Info</Link></li>
           {/* <li><Link to='/petitions' style={{fontSize: '25px', color: '#115E1B'}}>Petitions</Link></li> */}
-          <li><Link to='/map' style={{fontSize: '25px', color: '#115E1B'}}>Map</Link></li>
-          <li><Link to='/congress' style={{fontSize: '25px', color: '#115E1B'}}>Email-Congress</Link></li>
+          {/* <li><Link to='/map' style={{fontSize: '25px', color: '#115E1B'}}>Map</Link></li> */}
+          {/* <li><Link to='/congress' style={{fontSize: '25px', color: '#115E1B'}}>Email-Congress</Link></li> */}
           {/* <li><Link to='/donate' style={{fontSize: '25px', color: '#115E1B'}}>Donate</Link></li> */}
         </ul>
       </div>
