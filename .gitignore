@@ -1,4 +1,5 @@
 node_modules
-keys.js
+dev.js
+build
 .env
-priv.key
+.DS_Store
