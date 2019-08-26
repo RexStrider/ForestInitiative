@@ -34,7 +34,7 @@ class Navbar extends Component {
                         <div className='row justify-content-md-center'>
                             <div className='col-sm-11 d-flex justify-content-between'>
                                 <i className="fas fa-bars border border-white p-1 rounded-lg" style={{ color: 'white', fontSize: '35px' }} onClick={() => this.onSetSidebarOpen(true)}></i>
-                                <a href='http://localhost:3000/donate'><button className='btn btn-primary'>Donate</button></a>
+                                {/* <a href='http://localhost:3000/donate'><button className='btn btn-primary'>Donate</button></a> */}
                             </div>
                         </div>
                     </div>
