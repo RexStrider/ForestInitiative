@@ -16,7 +16,9 @@ During the hackathon we got very ambitious with the features we were trying to i
 
 Retrieving articles related to the state of our wilderness, and connecting you to your representatives.
 
-(links to the application will be provided once I have set up a server)
+You can check out the demo at the following link.
+
+[The Forest Initiative](https://forest-initiative.herokuapp.com/)
 
 ## Technology
 
