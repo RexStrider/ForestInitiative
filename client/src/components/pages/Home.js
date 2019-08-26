@@ -1,3 +1,5 @@
+import "./Home.css";
+
 import React from 'react';
 
 const Home = () => {
@@ -14,7 +16,20 @@ effort to permanently protect nearly 110 million acres of wilderness in 44 state
 
                 <h2 className=''>What are our goals with the Forest Intiative?</h2>
 
-                <h3 className='text-left'>#1: Defend the Roadless Rule</h3>
+                <h3 className="text-left">Bring your attention to the state of our wilderness</h3>
+                <p className="text-left">It can be hard to stay up to date with current events. So we wanted to provide a one 
+stop place where you can find and read articles that pertain to the state of our national parks. We use the google news api to 
+look up a variety of recently posted articles that are relevant to the state of our wilderness. You can find these articles by 
+going to the menu in the top left corner and clicking on the news link.</p>
+
+                <h3 className="text-left">Direct users to their representatives</h3>
+                <p className="text-left">One of the best ways you can make a difference is by connecting with your representatives. 
+You can use our platform to look up who represents you. We'll even provide you with contact information if it's available. Information 
+is retrieved using the Google Civic Information API. we'll also provide their facebook page and their twitter page if one is available. 
+You can find this information by locating the menu in the top left corner, clicking on the civic info link, and entering your address 
+into the search field (quality of the info and links provided may vary).</p>
+
+                {/* <h3 className='text-left'>#1: Defend the Roadless Rule</h3>
                 <p className='text-left'>Inventoried Roadless Areas are wild, undeveloped places on our national forests that
 are protected under a law called the 2001 Roadless Area Conservation Rule, better
 
@@ -34,7 +49,7 @@ harmful logging, pipelines, and roads will be prohibited and where wildlife, wat
 wildlands will be protected.</p>
                 <p className='text-left'>National forests across the country are actively developing new forest management
 plans. In these forest plans, the U.S. Forest Service decides what to protect and what
-will be made available to harmful development.</p>
+will be made available to harmful development.</p> */}
             </div>
         </div>
     )
