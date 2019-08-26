@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = require('./routes');
-const createError = require('http-errors');
+// const createError = require('http-errors');
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api', routes);
 
-app.use(function (req, res, next) {
-    next(createError(404));
-});
+// app.use(function (req, res, next) {
+//     next(createError(404));
+// });
 
 // error handler
 // app.use(function (err, req, res, next) {
