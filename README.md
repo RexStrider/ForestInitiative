@@ -18,7 +18,7 @@ Retrieving articles related to the state of our wilderness, and connecting you t
 
 You can check out the demo at the following link.
 
-[The Forest Initiative](https://forest-initiative.herokuapp.com/)
+### [The Forest Initiative](https://forest-initiative.herokuapp.com/)
 
 ## Technology
 
