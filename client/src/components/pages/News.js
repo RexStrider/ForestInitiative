@@ -29,7 +29,6 @@ class News extends Component {
             });
     }
 
-    // retrieves articles before rendering news component
     async componentDidMount() {
         await this.getArticles(1);
     }
@@ -57,9 +56,10 @@ class News extends Component {
 
                         { this.renderPaginationWrapper(this.state.currentPage, totalPages, maxPages) }
 
-                        { this.state.articles.map(article => {
+                        <section id="articles">
+                        { this.state.articles.map((article, key) => {
                             return (
-                                <div className='card' key={`${article.title}, ${article.source.name}`}>
+                                <div className='card' key={`${key}`}>
                                     <div className='card-body'>
                                         <h4 className='card-title'>
                                             {article.title}
@@ -78,6 +78,7 @@ class News extends Component {
                                 </div>
                             )
                         })}
+                        </section>
                     
                         { this.renderPaginationWrapper(this.state.currentPage, totalPages, maxPages) }
 
