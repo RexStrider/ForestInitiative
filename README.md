@@ -116,6 +116,18 @@ If you did everything correctly, you should see the hompage for the Forest Initi
 
 ![Forest Initiative Home page](./utils/assets/images/example-home.PNG)
 
+### Deployment
+
+This project was deployed with [Heroku](https://www.heroku.com/).
+
+Mostly because it is relatively simple to set up a Node application on Heroku. It also helps that it was free to set up. If you already have an account with Heroku, then just log in!
+
+Signing up/logging in should direct you to your dashboard. Here you should see a button in the top left called "New". Click on that button and select "Create new application".
+
+![Heroku Dashboard Screenshot](./utils/assets/images/example-heroku-dashboard.PNG)
+
+
+
 ## Technology
 
  - NodeJS
