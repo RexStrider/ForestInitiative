@@ -82,7 +82,7 @@ You need to do both because there are different packages used for the server sid
 
 There is one more step we need to do before we can run this project. Remember that this project uses the News API and Google Civic Information, so we need to reference the API keys somewhere to enable the application to use the APIs.
 
-Assuming you are still in the client directory, you will need to first go back to the root directory of the project.
+Assuming you are still in the client directory, you will need to go back to the root directory of the project.
 
 After that, go to the config directory and create a file called "dev.js".
 
@@ -112,7 +112,7 @@ npm run dev
 
 This should run the server side script and the front-end react script at the same time.
 
-If you did everything correctly, you should see the hompage for the Forest Initiative.
+If you did everything correctly, you should eventually see the hompage for the Forest Initiative.
 
 ![Forest Initiative Home page](./utils/assets/images/example-home.PNG)
 
@@ -129,6 +129,8 @@ Signing up/logging in should direct you to your dashboard. Here you should see a
 Give the application any name you please. Keep in mind the name does get used as part of the url associated witht he application, so try to keep it simple and straightforward.
 
 This should take you to your applications overview page, and from here you will have to find the "Deploy" tab.
+
+![Screenshot of Heroku dashboard](./utils/assets/images/example-heroku-dashboard-overview.PNG)
 
 Click on the "Deploy" tab, select Github for the "Deployment method", and enter the name of the repository you want to deploy.
 
