@@ -169,7 +169,7 @@ Finally, Go back to the "Deploy" tab, scroll to the bottom of the page, and clic
 
 Give it some time, and the after the application has deployed, you will be prompted to click on a button that will direct you to the deployed application.
 
-## Technology
+## Built With
 
  - [NodeJS](https://nodejs.org/en/download/)
  - [Express](http://expressjs.com/)
