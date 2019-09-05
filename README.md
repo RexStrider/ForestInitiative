@@ -122,11 +122,48 @@ This project was deployed with [Heroku](https://www.heroku.com/).
 
 Mostly because it is relatively simple to set up a Node application on Heroku. It also helps that it was free to set up. If you already have an account with Heroku, then just log in!
 
-Signing up/logging in should direct you to your dashboard. Here you should see a button in the top left called "New". Click on that button and select "Create new application".
+Signing up/logging in should direct you to your dashboard. Here you should see a button in the top right called "New". Click on that button and select "Create new application".
 
 ![Heroku Dashboard Screenshot](./utils/assets/images/example-heroku-dashboard.PNG)
 
+Give the application any name you please. Keep in mind the name does get used as part of the url associated witht he application, so try to keep it simple and straightforward.
 
+This should take you to your applications overview page, and from here you will have to find the "Deploy" tab.
+
+Click on the "Deploy" tab, select Github for the "Deployment method", and enter the name of the repository you want to deploy.
+
+We're almost done, we just have one last thing to do before we deploy the branch. We have to add in the API keys into the configuration variables.
+
+You may be thinking that we already did that when we created "dev.js" file, and I can understand the confusion.
+
+However this is not the case. This project was specifically configured to hide the API keys it uses and this is done by not including the dev.js file in the repository.
+
+If you look in the root directory of the repository, you can find a file called ".gitignore". All files referenced in this file are not included when adding, commiting, and pushing files to the repository.
+
+This is why I had you create the "dev.js" file in the first place. We do this to have an added measure of security. For now just trust that it's best practice to hide your API keys, or you can do the research figure it out for yourself!
+
+Point being, we need access to the API keys before deploying the build to production. Thankfully Heroku lets us set up the configuration variables for an application.
+
+Click on the "Setting" tab on your application dashboard.
+
+There should be a button that says "Reveal Config Vars".
+
+Click on it and it should reveal two fields and an "Add" button.
+
+In the "Key" put in the NAME of the API key, and in the value field enter the API key itself.
+
+For reference the names of the api keys are,
+
+```
+google_news_api
+google_civic_info_api
+```
+
+Or that's how they are referenced in this application.
+
+Finally, Go back to the "Deploy" tab, scroll to the bottom of the page, and click on the "deploy branch" button.
+
+Give it some time, and the after the application has deployed, you will be prompted to click on a button that will direct you to the deployed application.
 
 ## Technology
 
