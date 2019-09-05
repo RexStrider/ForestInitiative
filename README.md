@@ -171,11 +171,11 @@ Give it some time, and the after the application has deployed, you will be promp
 
 ## Technology
 
- - NodeJS
- - Express
- - React
- - News API
- - Google Civic Information
+ - [NodeJS](https://nodejs.org/en/download/)
+ - [Express](http://expressjs.com/)
+ - [React](https://reactjs.org/)
+ - [News API](https://newsapi.org/)
+ - [Google Civic Information](https://developers.google.com/civic-information/)
 
 ## Future Features
 
