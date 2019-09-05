@@ -4,7 +4,7 @@ A one stop website for learning about the state of our wilderness and getting in
 
 ## Team
 
-Aaron, Jessie, and Kit
+[Aaron](https://github.com/RexStrider), [Jessie](https://github.com/JessieSidWho), and [Kit](https://github.com/kjonathante)
 
 ## Description
 
@@ -187,3 +187,7 @@ Here is a list of features we had considered implementing
  - A contact form that connected you directly to [Sonny Perdue](https://en.wikipedia.org/wiki/Sonny_Perdue). He's been the United States Secretary of Agriculture since 2017 and has a big say in which areas are designated as wilderness (and therefore are protected by law).
 
  Ultimately it was all too much to do within the time alloted, but I liked the general idea so I decided to set up a prototype to get a sense of what this project could be.
+ 
+ ## License
+ 
+ This project is licensed under the MIT License - see the LICENSE.md file for details
