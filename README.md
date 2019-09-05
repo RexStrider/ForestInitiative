@@ -130,7 +130,7 @@ Give the application any name you please. Keep in mind the name does get used as
 
 This should take you to your applications overview page, and from here you will have to find the "Deploy" tab.
 
-![Screenshot of Heroku dashboard](./utils/assets/images/example-heroku-dashboard-overview.PNG)
+![Heroku deploy tab screenshot](./utils/assets/images/example-heroku-dashboard-deploy.PNG)
 
 Click on the "Deploy" tab, select Github for the "Deployment method", and enter the name of the repository you want to deploy.
 
@@ -147,6 +147,8 @@ This is why I had you create the "dev.js" file in the first place. We do this to
 Point being, we need access to the API keys before deploying the build to production. Thankfully Heroku lets us set up the configuration variables for an application.
 
 Click on the "Setting" tab on your application dashboard.
+
+![Heroku settings tab screenshot](./utils/assets/images/example-heroku-dashboard-settings.PNG)
 
 There should be a button that says "Reveal Config Vars".
 
